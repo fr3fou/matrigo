@@ -13,7 +13,7 @@ This code used to be in [github.com/fr3fou/gone](https://github.com/fr3fou/gone)
 - [x] Add
 - [x] SubtractMatrix
 - [x] Subtract
-- [x] Multiply
+- [x] MultiplyMatrix
 - [x] Multiply
 - [x] Flatten
 - [x] Unflatten
