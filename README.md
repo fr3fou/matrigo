@@ -21,6 +21,7 @@ This code used to be in [github.com/fr3fou/gone](https://github.com/fr3fou/gone)
 - [x] Map
 - [x] Fold
 - [x] Methods to support chaining
+- [x] Determinant
 ```go
 n.Weights[i].
   Multiply(output).                         // weighted sum of the previous layer)
