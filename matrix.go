@@ -152,6 +152,10 @@ func (m Matrix) Flatten() []float64 {
 	return r
 }
 
+func (m Matrix) Det() float64 {
+	return Det(m)
+}
+
 // Unflatten chops the data in `c` slices `r` times
 // In other words it makes a new matrix from a 1D array
 func Unflatten(r, c int, data []float64) Matrix {
