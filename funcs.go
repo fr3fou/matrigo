@@ -1,5 +1,7 @@
 package matrigo
 
+import "math"
+
 // Map applies f to every element of the matrix and returns the result.
 func Map(m Matrix, f Mapper) Matrix {
 	n := New(m.Rows, m.Columns, nil)
@@ -52,6 +54,43 @@ func Sum(m Matrix) float64 {
 	return m.Fold(func(accumulator, val float64, x, y int) float64 {
 		return accumulator + val
 	}, 0)
+}
+
+func Det(m Matrix) float64 {
+	// Base case -> det([[x]]) = x
+	if m.Rows == 1 && m.Columns == 1 {
+		return m.Data[0][0]
+	}
+
+	// Remove 1st Row and n-th column
+	f := func(m Matrix, n int) Matrix {
+		data := [][]float64{}
+
+		for i, row := range m.Data {
+			// Skip first row
+			if i == 0 {
+				continue
+			}
+			current := []float64{}
+			for j, col := range row {
+				// Skip n-th column
+				if j == n {
+					continue
+				}
+				current = append(current, col)
+			}
+			data = append(data, current)
+		}
+
+		return New(m.Rows-1, m.Columns-1, data)
+	}
+
+	det := 0.0
+	for n, v := range m.Data[0] {
+		det += math.Pow(-1, float64(n)) * v * Det(f(m, n))
+	}
+
+	return det
 }
 
 // AddMatrix adds 2 matrices together.

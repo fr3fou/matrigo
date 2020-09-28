@@ -228,7 +228,6 @@ func TestUnflatten(t *testing.T) {
 	})
 
 	assert.Equal(t, expected, Unflatten(2, 3, m))
-
 }
 
 func TestDivide(t *testing.T) {
@@ -245,4 +244,14 @@ func TestSum(t *testing.T) {
 	expected := 45.0
 
 	assert.Equal(t, expected, Sum(m))
+}
+
+func TestDet(t *testing.T) {
+	m := New(3, 3, [][]float64{
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9},
+	})
+
+	assert.Equal(t, 0.0, Det(m))
 }
