@@ -152,6 +152,7 @@ func (m Matrix) Flatten() []float64 {
 	return r
 }
 
+// Det computes the determinant.
 func (m Matrix) Det() float64 {
 	return Det(m)
 }

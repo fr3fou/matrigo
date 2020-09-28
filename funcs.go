@@ -56,6 +56,7 @@ func Sum(m Matrix) float64 {
 	}, 0)
 }
 
+// Det computes the determinant.
 func Det(m Matrix) float64 {
 	// Base case -> det([[x]]) = x
 	if m.Rows == 1 && m.Columns == 1 {
