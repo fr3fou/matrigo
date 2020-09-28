@@ -247,11 +247,24 @@ func TestSum(t *testing.T) {
 }
 
 func TestDet(t *testing.T) {
-	m := New(3, 3, [][]float64{
-		{1, 2, 3},
-		{4, 5, 6},
-		{7, 8, 9},
-	})
+	{
+		m := New(3, 3, [][]float64{
+			{1, 2, 3},
+			{4, 5, 6},
+			{7, 8, 9},
+		})
 
-	assert.Equal(t, 0.0, Det(m))
+		assert.Equal(t, 0.0, Det(m))
+	}
+
+	{
+		m := New(4, 4, [][]float64{
+			{2, 3, 4, 5},
+			{3, 4, 4, 6},
+			{3, 5, 7, 5},
+			{2, 4, 6, 4},
+		})
+
+		assert.Equal(t, 4.0, Det(m))
+	}
 }
