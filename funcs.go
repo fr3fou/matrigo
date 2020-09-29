@@ -90,7 +90,6 @@ func Det(m Matrix) float64 {
 	for n, v := range m.Data[0] {
 		det += math.Pow(-1, float64(n)) * v * Det(f(m, n))
 	}
-
 	return det
 }
 
