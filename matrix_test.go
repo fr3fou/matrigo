@@ -22,7 +22,7 @@ func TestTranspose(t *testing.T) {
 	assert.Equal(t, trans, Transpose(m))
 }
 
-func TestMultiply(t *testing.T) {
+func TestScale(t *testing.T) {
 	m := New(3, 3, [][]float64{
 		{1, 2, 3},
 		{4, 5, 6},
@@ -35,7 +35,7 @@ func TestMultiply(t *testing.T) {
 		{7 * 0.5, 8 * 0.5, 9 * 0.5},
 	})
 
-	assert.Equal(t, expected, Multiply(m, 0.5))
+	assert.Equal(t, expected, Scale(m, 0.5))
 }
 
 func TestAddMatrix(t *testing.T) {
@@ -106,7 +106,7 @@ func TestSubtract(t *testing.T) {
 	assert.Equal(t, expected, Subtract(m, 10))
 }
 
-func TestDotProduct(t *testing.T) {
+func TestMultiply(t *testing.T) {
 	m := New(3, 3, [][]float64{
 		{1, 2, 3},
 		{4, 5, 6},
@@ -125,7 +125,7 @@ func TestDotProduct(t *testing.T) {
 		{138, 114, 90},
 	})
 
-	assert.Equal(t, expected, DotProduct(m, n))
+	assert.Equal(t, expected, Multiply(m, n))
 }
 
 func TestHadamardProduct(t *testing.T) {

@@ -35,8 +35,8 @@ func Transpose(m Matrix) Matrix {
 		})
 }
 
-// Multiply does scalar multiplication.
-func Multiply(m Matrix, a float64) Matrix {
+// Scale does scalar multiplication.
+func Scale(m Matrix, a float64) Matrix {
 	return Map(New(m.Rows, m.Columns, nil), func(val float64, x, y int) float64 {
 		return m.Data[x][y] * a
 	})
@@ -140,8 +140,8 @@ func HadamardProduct(m Matrix, n Matrix) Matrix {
 	})
 }
 
-// DotProduct does matrix product.
-func DotProduct(m, n Matrix) Matrix {
+// Multiply does matrix product.
+func Multiply(m, n Matrix) Matrix {
 	if m.Columns != n.Rows {
 		panic("matrix: rows must match with columns of matricies")
 	}

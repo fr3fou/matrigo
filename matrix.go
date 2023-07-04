@@ -92,9 +92,9 @@ func (m Matrix) Transpose() Matrix {
 	return Transpose(m)
 }
 
-// Multiply does scalar multiplication
-func (m Matrix) Multiply(a float64) Matrix {
-	return Multiply(m, a)
+// Scale does scalar multiplication
+func (m Matrix) Scale(a float64) Matrix {
+	return Scale(m, a)
 }
 
 // Divide does scalar multiplication
@@ -132,9 +132,9 @@ func (m Matrix) HadamardProduct(n Matrix) Matrix {
 	return HadamardProduct(m, n)
 }
 
-// DotProduct does matrix product
-func (m Matrix) DotProduct(n Matrix) Matrix {
-	return DotProduct(m, n)
+// Multiply does matrix product
+func (m Matrix) Multiply(n Matrix) Matrix {
+	return Multiply(m, n)
 }
 
 // Flatten flattens the matrix
