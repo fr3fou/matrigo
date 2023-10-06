@@ -115,16 +115,12 @@ func SubtractMatrix(m, n Matrix) Matrix {
 		panic("matrix: can't subtract different sized matricies")
 	}
 
-	return Map(New(m.Rows, m.Columns, nil), func(val float64, x, y int) float64 {
-		return m.Data[x][y] - n.Data[x][y]
-	})
+	return AddMatrix(m, Scale(n, -1))
 }
 
 // Subtract does scalar subtraction.
 func Subtract(m Matrix, n float64) Matrix {
-	return Map(New(m.Rows, m.Columns, nil), func(val float64, x, y int) float64 {
-		return m.Data[x][y] - n
-	})
+	return Add(m, -n)
 }
 
 // HadamardProduct does Hadamard Product (entrywise).
