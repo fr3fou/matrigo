@@ -99,7 +99,7 @@ func (m Matrix) Scale(a float64) Matrix {
 
 // Divide does scalar multiplication
 func (m Matrix) Divide(a float64) Matrix {
-	return Divide(m, a)
+	return Scale(m, 1/a)
 }
 
 // Sum gives the sum of the elements in the matrix
@@ -119,12 +119,12 @@ func (m Matrix) Add(a float64) Matrix {
 
 // SubtractMatrix subtracts 2 matrices
 func (m Matrix) SubtractMatrix(n Matrix) Matrix {
-	return SubtractMatrix(m, n)
+	return AddMatrix(m, Scale(n, -1))
 }
 
 // Subtract does scalar subtraction
 func (m Matrix) Subtract(a float64) Matrix {
-	return Subtract(m, a)
+	return Add(m, -a)
 }
 
 // HadamardProduct does Hadamard product (entrywise)

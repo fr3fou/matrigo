@@ -42,11 +42,6 @@ func Scale(m Matrix, a float64) Matrix {
 	})
 }
 
-// Divide does scalar division.
-func Divide(m Matrix, a float64) Matrix {
-	return Scale(m, 1/a)
-}
-
 // Sum gives the sum of the elements in the matrix.
 func Sum(m Matrix) float64 {
 	return m.Fold(func(accumulator, val float64, x, y int) float64 {
@@ -107,20 +102,6 @@ func Add(m Matrix, n float64) Matrix {
 	return Map(New(m.Rows, m.Columns, nil), func(val float64, x, y int) float64 {
 		return m.Data[x][y] + n
 	})
-}
-
-// SubtractMatrix subtracts 2 matrices.
-func SubtractMatrix(m, n Matrix) Matrix {
-	if m.Rows != n.Rows || m.Columns != n.Columns {
-		panic("matrix: can't subtract different sized matrices")
-	}
-
-	return AddMatrix(m, Scale(n, -1))
-}
-
-// Subtract does scalar subtraction.
-func Subtract(m Matrix, n float64) Matrix {
-	return Add(m, -n)
 }
 
 // HadamardProduct does Hadamard Product (entrywise).
