@@ -94,7 +94,7 @@ func Det(m Matrix) float64 {
 // AddMatrix adds 2 matrices together.
 func AddMatrix(m, n Matrix) Matrix {
 	if m.Rows != n.Rows || m.Columns != n.Columns {
-		panic("matrix: can't add different sized matricies")
+		panic("matrix: can't add different sized matrices")
 	}
 
 	return Map(New(m.Rows, m.Columns, nil), func(val float64, x, y int) float64 {
@@ -112,7 +112,7 @@ func Add(m Matrix, n float64) Matrix {
 // SubtractMatrix subtracts 2 matrices.
 func SubtractMatrix(m, n Matrix) Matrix {
 	if m.Rows != n.Rows || m.Columns != n.Columns {
-		panic("matrix: can't subtract different sized matricies")
+		panic("matrix: can't subtract different sized matrices")
 	}
 
 	return AddMatrix(m, Scale(n, -1))
@@ -126,7 +126,7 @@ func Subtract(m Matrix, n float64) Matrix {
 // HadamardProduct does Hadamard Product (entrywise).
 func HadamardProduct(m Matrix, n Matrix) Matrix {
 	if m.Columns != n.Columns || m.Rows != n.Rows {
-		panic("matrix: matricies must have the same shape")
+		panic("matrix: matrices must have the same shape")
 	}
 
 	return Map(New(m.Rows, m.Columns, nil), func(val float64, x, y int) float64 {
@@ -137,7 +137,7 @@ func HadamardProduct(m Matrix, n Matrix) Matrix {
 // Multiply does matrix product.
 func Multiply(m, n Matrix) Matrix {
 	if m.Columns != n.Rows {
-		panic("matrix: rows must match with columns of matricies")
+		panic("matrix: rows must match with columns of matrices")
 	}
 
 	return Map(New(m.Rows, n.Columns, nil), func(_ float64, x, y int) float64 {
