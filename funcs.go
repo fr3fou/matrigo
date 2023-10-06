@@ -44,9 +44,7 @@ func Scale(m Matrix, a float64) Matrix {
 
 // Divide does scalar division.
 func Divide(m Matrix, a float64) Matrix {
-	return Map(New(m.Rows, m.Columns, nil), func(val float64, x, y int) float64 {
-		return m.Data[x][y] / a
-	})
+	return Scale(m, 1/a)
 }
 
 // Sum gives the sum of the elements in the matrix.
